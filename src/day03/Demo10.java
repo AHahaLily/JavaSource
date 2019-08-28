@@ -4,7 +4,7 @@ public class Demo10 {
 
 	public static void main(String[] args) {
 		/*
-		 * 练习：计算9+99+999+9999+99999+999999
+		 *练习：计算9+99+999+9999+99999+999999
 		 */
 		int sum=0;
 		int temp=0;
@@ -15,5 +15,4 @@ public class Demo10 {
 		}
 		System.out.println("结果："+sum);
 	}
-
 }
