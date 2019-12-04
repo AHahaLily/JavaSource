@@ -1,8 +1,15 @@
-package cn.cloudyzcy;
+package per_exercise;
 
-public class TestMaxMinValue {
+public class TestMaxMinValue {    //创建类
 
 	public static void main(String[] args) {
+		byte mybyte=124;  			//声明byte类型的变量并赋值
+		short myshort=32564;        //声明short型变量并赋值
+		int myint=45784612;			//声明int型变量并赋值
+		long mylong=46789451;		//声明long型变量并赋值
+		long result=mybyte+myshort+myint+mylong;  //获得各数相加后的结果
+		System.out.println("结果为："+result);       //将结果输出
+		
 		for (String temp : args) { // 输出args数组的值
 			System.out.println(temp);
 		}
