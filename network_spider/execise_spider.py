@@ -32,19 +32,14 @@ class MaoyanSpider(object):
 
         html = res.read().decode()
 
-        print(html)
-
         self.parse_html(html)
 
     def parse_html(self, html):
-        regex = '<div class="movie-item-info">.*?title="(.*?)".*?<p class="\
-            star">(.*?)</p>.*?class="releasetime">(.*?)</p>'
+        regex = '<div class="movie-item-info">.*?title="(.*?)".*?<p class="star">(.*?)</p>.*?class="releasetime">(.*?)</p>'
 
         pattern = re.compile(regex, re.S)
 
-        rlist = pattern.findall(regex)
-
-        print(rlist)
+        rlist = pattern.findall(html)
 
         self.save_html(rlist)
 
