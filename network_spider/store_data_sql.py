@@ -28,17 +28,17 @@ db.close()
 import pymysql
 
 # 创建数据库对象
-db = pymysql.connect('localhost', 'root', 'root', 'filmtab')
+db = pymysql.connect(host='localhost', user='RootAdmin', password='Password01!', database='filmtab',charset='utf8')
 
 cursor = db.cursor()
 
 # 单句sql语句执行
-info_list = ['刺杀小说家', '雷佳音，杨幂', '2021-2-12']
+info_list = ('你好，李焕英', '贾玲', '2021-2-12')
 
-sql = 'insert into filetab values(%s,%s,%s)'
+sql = "insert into filmtab values(%s,%s,%s)"
 
 # 列表传参
-cursor.execute(sql, info_list)
+res=cursor.execute(sql,info_list)
 
 db.commit()
 
