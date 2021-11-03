@@ -3,7 +3,7 @@ Python连接并操作MySQL数据库主要通过Pymysql模块实现
 
 基本使用：
 1 连接数据库
-db=pymysql.connect('localhost','root','root','filmtab')
+db=pymysql.connect('localhost',username,password,database)
 
 参数：
 localhost--本地MySQL服务端地址，也可以是远程数据库的IP地址
@@ -28,7 +28,7 @@ db.close()
 import pymysql
 
 # 创建数据库对象
-db = pymysql.connect(host='localhost', user='RootAdmin', password='Password01!', database='filmtab',charset='utf8')
+db = pymysql.connect(host='localhost', user='***', password='***', database='filmtab',charset='utf8')
 
 cursor = db.cursor()
 
