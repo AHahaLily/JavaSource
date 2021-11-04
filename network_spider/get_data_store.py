@@ -12,9 +12,9 @@ class StoreSpider(object):
         # 数据库连接对象
         self.db = pymysql.connect(
             host='localhost',
-            user='root',
-            password='root',
-            database='python db')
+            user='RootAdmin',
+            password='Password01!',
+            database='filmtab')
         # 创建游标对象
         self.cursor = self.db.cursor()
 
@@ -28,8 +28,7 @@ class StoreSpider(object):
     def parse_html(self, html):
         print(html)
 
-        r = '<div class="movie-item-info">.*?title="(.*?)".*?<p\
-                  class="star">(.*?)</p>.*?class="releasetime">(.*?)</p>'
+        r = '<div class="movie-item-info">.*?title="(.*?)".*?<p class="star">(.*?)</p>.*?class="releasetime">(.*?)</p>'
 
         pattern = re.compile(r, re.S)
 
@@ -41,13 +40,13 @@ class StoreSpider(object):
 
     def save_html(self, rlist):
         List = []
-        sql = 'insert into filmtab values(%s,%s,%s)'
+        sql = 'insert into filmtab(name,star,time) values(%s,%s,%s)'
 
         # 整理数据
         for r in rlist:
             res = (r[0].strip(), r[1].strip()[3:], r[2].strip()[5:15])
             List.append(res)
-            print(List)
+        print(List)    
 
         self.cursor.executemany(sql, List)
         self.db.commit()
