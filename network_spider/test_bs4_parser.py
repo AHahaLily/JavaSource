@@ -36,3 +36,26 @@ print(soup.p['class'])
 # 给class属性赋值，属性值由列表转换为字符串
 soup.p['class']=['Web','Site']
 print(soup.p)
+
+# 遍历节点
+html_doc="""
+<html><head><title>"c语言中文网"</title></head>
+<body>
+<p class="title"><b>c.biancheng.net</b></p>
+<p class="website">一个学习编程的网站</p>
+<a href="http://c.biancheng.net/python/" id="link1">python教程</a>,
+<a href="http://c.biancheng.net/c/" id="link2">c语言教程</a> and
+"""
+
+soup=BeautifulSoup(html_doc,'html.parser')
+
+body_tag=soup.body
+
+print(body_tag)
+
+# 以列表形式输出所有子节点
+print(body_tag.contents)
+
+# Tag的children属性会生成一个可迭代对象，可用于遍历子节点
+for child in body_tag.children:
+    print(child)
